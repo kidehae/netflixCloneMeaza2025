@@ -1,0 +1,78 @@
+.header_outer_container {
+  position: sticky;
+  top: 0; /* Changed from 10px for better sticky behavior */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 9vh;
+  color: white;
+  transition: all 0.5s ease-in;
+  z-index: 1000; /* Higher z-index to ensure header stays on top */
+  background-color: rgb(18, 17, 17);
+  width: 100%;
+}
+
+.nav__black {
+  background-color: rgb(
+    20,
+    20,
+    20
+  ) !important; /* Overrides any other background */
+}
+
+.header_container {
+  margin-top: 10px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header_left ul,
+.header_right ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header_left ul li,
+.header_right ul li {
+  margin: 10px;
+  padding: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .header_container {
+    width: 95%; /* Slightly more padding on smaller screens */
+  }
+
+  .header_left ul li,
+  .header_right ul li {
+    margin: 5px; /* Reduce spacing on smaller screens */
+    padding: 3px;
+  }
+
+  /* Hide some menu items if needed */
+  .header_left ul li:nth-child(n+3), /* Hides all except first 2 items */
+  .header_right ul li:nth-child(2) {
+    /* Hides notifications icon */
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .header_outer_container {
+    height: 7vh; /* Smaller header on mobile */
+  }
+
+  .header_left img {
+    width: 80px; /* Smaller logo */
+  }
+
+  /* Show only essential icons (search + dropdown) */
+  .header_right ul li:not(:first-child):not(:last-child) {
+    display: none;
+  }
+}
